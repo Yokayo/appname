@@ -1,0 +1,27 @@
+Инструкция по развёртыванию приложения на порту 80.
+Необходим Maven и Tomcat, а также запущенный MySQL Server, настроенный на порт 3306.
+0) Выполнить скрипты:
+0.1) CREATE DATABASE sampledb;
+0.2) USE sampledb;
+CREATE TABLE user (
+    id varchar(255),
+    username varchar(255),
+    avatar varchar(255),
+    email varchar(255),
+    city varchar(255),
+    real_name varchar(255),
+    birth_date date,
+    
+    unique(username),
+    primary key (id)
+)
+1) Скачать проект в папку appname
+2) Открыть командную строку и перейти в папку с проектом
+3) Выполнить команду mvn clean compile war:exploded
+4) Создать в папке webapps корневой папки Tomcat папку test
+5) Скопировать папки из директории appname/target/appname-1.0-SNAPSHOT в директорию (корневая папка Tomcat)/webapps/test/
+6) Открыть файл (корневая папка Tomcat)/conf/server.xml
+7) Найти элемент Connector с атрибутом protocol="HTTP/1.1"
+8) Выставить у этого элемента значение атрибута port = "80"
+9) Сохранить файл
+10) Запустить службу Tomcat
