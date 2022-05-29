@@ -4,9 +4,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.servlet.DispatcherServlet;
-import com.yokayo.appname.controllers.UserController;
 
 public class ApplicationInitializer implements WebApplicationInitializer {
     @Override
